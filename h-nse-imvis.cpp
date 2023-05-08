@@ -9,6 +9,7 @@
 #include "Invert.h"
 #include "Contrast.h"
 #include "Zoom.h"
+#include "Filter.h"
 
 using namespace cv;
 using namespace std;
@@ -231,14 +232,86 @@ int lab2_opdracht3_affien_mysterie() { // 6. Mysterieuze affiene transformatie
 }
 
 int lab3_opdracht1_hoogdoorlaat() { // 7. Hoogdoorlaat filter
+    Mat src, dst;
+
+    String source_window = "Origineel plaatje";
+    String destination_window = "Nieuw Plaatje";
+
+    src = imread("..//lab3//joint.jpg", IMREAD_GRAYSCALE);
+    namedWindow(source_window, WINDOW_AUTOSIZE);
+    imshow(source_window, src);
+    int HEIGHT = src.rows;
+    int WIDTH = src.cols;
+    int temp = 0;
+
+    dst = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
+
+    Filter inverteer(src, dst);
+    inverteer.process();
+
+    namedWindow(destination_window, WINDOW_AUTOSIZE);
+    imshow(destination_window, dst);
+
+    moveWindow(source_window, 0, 0);
+    moveWindow(destination_window, WIDTH, 0);
+
+    waitKey(0);
     return 0;
 }
 
 int lab3_opdracht2a_laagdoorlaat() { // 8. Laagdoorlaat filter
+    Mat src, dst;
+
+    String source_window = "Origineel plaatje";
+    String destination_window = "Nieuw Plaatje";
+
+    src = imread("..//lab3//whalesp.jpg", IMREAD_GRAYSCALE);
+    namedWindow(source_window, WINDOW_AUTOSIZE);
+    imshow(source_window, src);
+    int HEIGHT = src.rows;
+    int WIDTH = src.cols;
+    int temp = 0;
+
+    dst = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
+
+    Filter inverteer(src, dst);
+    inverteer.smoothing();
+
+    namedWindow(destination_window, WINDOW_AUTOSIZE);
+    imshow(destination_window, dst);
+
+    moveWindow(source_window, 0, 0);
+    moveWindow(destination_window, WIDTH, 0);
+
+    waitKey(0);
     return 0;
 }
 
 int lab3_opdracht2b_mediaan() { // 9. Mediaan filter
+    Mat src, dst;
+
+    String source_window = "Origineel plaatje";
+    String destination_window = "Nieuw Plaatje";
+
+    src = imread("..//lab3//whalesp.jpg", IMREAD_GRAYSCALE);
+    namedWindow(source_window, WINDOW_AUTOSIZE);
+    imshow(source_window, src);
+    int HEIGHT = src.rows;
+    int WIDTH = src.cols;
+    int temp = 0;
+
+    dst = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
+
+    Filter inverteer(src, dst);
+    inverteer.mediaan();
+
+    namedWindow(destination_window, WINDOW_AUTOSIZE);
+    imshow(destination_window, dst);
+
+    moveWindow(source_window, 0, 0);
+    moveWindow(destination_window, WIDTH, 0);
+
+    waitKey(0);
     return 0;
 }
 

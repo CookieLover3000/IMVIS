@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Contrast.cpp" />
+    <ClCompile Include="Filter.cpp" />
     <ClCompile Include="H-NSE-IMVIS.cpp" />
     <ClCompile Include="Histogram.cpp" />
     <ClCompile Include="Invert.cpp" />
@@ -28,6 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Contrast.h" />
+    <ClInclude Include="Filter.h" />
     <ClInclude Include="Histogram.h" />
     <ClInclude Include="Invert.h" />
     <ClInclude Include="Mirror.h" />
