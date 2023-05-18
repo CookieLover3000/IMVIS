@@ -8,10 +8,14 @@ using namespace std;
 class Mier
 {
 public:
-	Mier(Mat& src1, Mat& src2, Mat& dst);
+	Mier(Mat& src, Mat& src2, Mat& dst);
 	void process();
 private:
-	Mat src1, src2, dst;
+	Mat src, src2, dst;
 	int HEIGHT, WIDTH;
+	Mat threshold(Mat);
+	Mat vindMier(Mat);
+	Mat erosie(Mat, Mat);
+	Mat dilatie(Mat, Mat);
 };
 

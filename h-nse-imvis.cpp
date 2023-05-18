@@ -323,13 +323,13 @@ int lab4_opdracht3_mieren() { // 10. Mier(en)
     String source_window2 = "tweede plaatje";
     String destination_window = "Waar is de mier?";
 
-    src1 = imread("..//lab4//ants1.tif", IMREAD_GRAYSCALE);
+    src1 = imread("..//lab4//ants1.pgm", IMREAD_GRAYSCALE);
     namedWindow(source_window1, WINDOW_AUTOSIZE);
     imshow(source_window1, src1);
     int HEIGHT = src1.rows;
     int WIDTH = src1.cols;
 
-    src2 = imread("..//lab4//ants2.tif", IMREAD_GRAYSCALE);
+    src2 = imread("..//lab4//ants2.pgm", IMREAD_GRAYSCALE);
     namedWindow(source_window2, WINDOW_AUTOSIZE);
     imshow(source_window2, src2);
 
