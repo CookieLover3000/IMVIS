@@ -10,6 +10,7 @@
 #include "Contrast.h"
 #include "Zoom.h"
 #include "Filter.h"
+#include "Mier.h"
 
 using namespace cv;
 using namespace std;
@@ -316,6 +317,37 @@ int lab3_opdracht2b_mediaan() { // 9. Mediaan filter
 }
 
 int lab4_opdracht3_mieren() { // 10. Mier(en)
+    Mat src1, src2, dst;
+
+    String source_window1 = "eerste plaatje";
+    String source_window2 = "tweede plaatje";
+    String destination_window = "Waar is de mier?";
+
+    src1 = imread("..//lab4//ants1.tif", IMREAD_GRAYSCALE);
+    namedWindow(source_window1, WINDOW_AUTOSIZE);
+    imshow(source_window1, src1);
+    int HEIGHT = src1.rows;
+    int WIDTH = src1.cols;
+
+    src2 = imread("..//lab4//ants2.tif", IMREAD_GRAYSCALE);
+    namedWindow(source_window2, WINDOW_AUTOSIZE);
+    imshow(source_window2, src2);
+
+    int temp = 0;
+
+    dst = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
+
+    Mier mieren(src1, src2, dst);
+    mieren.process();
+
+    namedWindow(destination_window, WINDOW_AUTOSIZE);
+    imshow(destination_window, dst);
+
+    moveWindow(source_window1, 0, 0);
+    moveWindow(destination_window, WIDTH, 0);
+    moveWindow(source_window2, 0, 513);
+
+    waitKey(0);
     return 0;
 }
 

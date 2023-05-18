@@ -24,6 +24,7 @@
     <ClCompile Include="H-NSE-IMVIS.cpp" />
     <ClCompile Include="Histogram.cpp" />
     <ClCompile Include="Invert.cpp" />
+    <ClCompile Include="Mier.cpp" />
     <ClCompile Include="Mirror.cpp" />
     <ClCompile Include="Zoom.cpp" />
   </ItemGroup>
@@ -32,9 +33,14 @@
     <ClInclude Include="Filter.h" />
     <ClInclude Include="Histogram.h" />
     <ClInclude Include="Invert.h" />
+    <ClInclude Include="Mier.h" />
     <ClInclude Include="Mirror.h" />
     <ClInclude Include="Parameters.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Zoom.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="H-NSE-IMVIS.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
