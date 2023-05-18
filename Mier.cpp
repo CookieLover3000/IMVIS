@@ -12,21 +12,15 @@ Mier::Mier(Mat& src, Mat& src2, Mat& dst) {
 
 void Mier::process(void)
 {
-    Mat tdst = Mat::ones(src.rows, src.cols, CV_8U) * 0;
-    Mat tdst2 = Mat::ones(src.rows, src.cols, CV_8U) * 0;
-    Mat tdst3 = Mat::ones(src.rows, src.cols, CV_8U) * 0;
-    Mat tdst4 = Mat::ones(src.rows, src.cols, CV_8U) * 0;
-    Mat tdst5 = Mat::ones(src.rows, src.cols, CV_8U) * 0;
-    Mat tdst6 = Mat::ones(src.rows, src.cols, CV_8U) * 0;
+    Mat tdst = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
+    Mat tdst2 = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
+    Mat tdst3 = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
     src = threshold(src);
     src2 = threshold(src2);
     tdst = vindMier(tdst);
     tdst2 = erosie(tdst, tdst2);
     tdst3 = erosie(tdst2, tdst3);
-    tdst4= dilatie(tdst3, tdst4);
-    tdst5= dilatie(tdst4, tdst5);
-    tdst6 = dilatie(tdst5, tdst6);
-    dst = dilatie(tdst6, dst);
+    dst = dilatie(tdst3, dst);
 }
 
 Mat Mier::threshold(Mat tempsrc)
@@ -35,12 +29,11 @@ Mat Mier::threshold(Mat tempsrc)
     for (h = 0; h < HEIGHT; h++) {
         for (w = 0; w < WIDTH; w++) {
             temp = tempsrc.at<uchar>(h, w);
-            if (temp > 126) { // 97 is de gekozen drempelwaarde
+            if (temp > 97) { // 97 is de gekozen drempelwaarde
                 temp = 0;
             }
-            else {
+            else
                 temp = 255;
-            }
             tempsrc.at<uchar>(h, w) = temp;
         }
     }
