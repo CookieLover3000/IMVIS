@@ -41,9 +41,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Histogram.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Mirror.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -66,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Mier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Histogram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

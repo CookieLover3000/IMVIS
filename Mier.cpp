@@ -15,12 +15,14 @@ void Mier::process(void)
     Mat tdst = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
     Mat tdst2 = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
     Mat tdst3 = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
+    Mat tdst4 = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
     src = threshold(src);
     src2 = threshold(src2);
     tdst = vindMier(tdst);
     tdst2 = erosie(tdst, tdst2);
     tdst3 = erosie(tdst2, tdst3);
-    dst = dilatie(tdst3, dst);
+    tdst4 = dilatie(tdst3, tdst4);
+    dst = dilatie(tdst4, dst);
 }
 
 Mat Mier::threshold(Mat tempsrc)

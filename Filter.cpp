@@ -1,4 +1,5 @@
 #include "Filter.h"
+
 using namespace cv;
 using namespace std;
 
@@ -142,4 +143,3 @@ void Filter::insertionSort(int arr[], int n)
         arr[j + 1] = key;
     }
 }
-
