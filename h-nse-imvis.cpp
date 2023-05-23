@@ -12,6 +12,7 @@
 #include "Filter.h"
 #include "Mier.h"
 #include "Gaten.h"
+#include "GatenMaarDanBeter.h"
 
 using namespace cv;
 using namespace std;
@@ -380,6 +381,29 @@ int lab5_opdracht1_gaten_tellen() { // 11. Gaten tellen1
 }
 
 int lab5_opdracht2_labellen() { // 12. Gaten tellen2 - verbeterd
+    Mat src, dst;
+
+    String source_window = "Origineel plaatje";
+    String destination_window = "Nieuw Plaatje";
+
+    src = imread("..//lab5//chassis2.pgm", IMREAD_GRAYSCALE);
+    namedWindow(source_window, WINDOW_AUTOSIZE);
+    imshow(source_window, src);
+    int HEIGHT = src.rows;
+    int WIDTH = src.cols;
+    int temp = 0;
+
+    dst = Mat::ones(HEIGHT, WIDTH, CV_8U) * 0;
+
+    GatenMaarDanBeter beterGat(src, dst);
+    beterGat.process();
+    namedWindow(destination_window, WINDOW_AUTOSIZE);
+    imshow(destination_window, dst);
+
+    moveWindow(source_window, 0, 0);
+    moveWindow(destination_window, WIDTH, 0);
+
+    waitKey(0);
     return 0;
 }
 

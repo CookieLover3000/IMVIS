@@ -42,6 +42,9 @@
     <ClCompile Include="Gaten.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GatenMaarDanBeter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mirror.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Histogram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GatenMaarDanBeter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

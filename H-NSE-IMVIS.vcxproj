@@ -22,6 +22,7 @@
     <ClCompile Include="Contrast.cpp" />
     <ClCompile Include="Filter.cpp" />
     <ClCompile Include="Gaten.cpp" />
+    <ClCompile Include="GatenMaarDanBeter.cpp" />
     <ClCompile Include="H-NSE-IMVIS.cpp" />
     <ClCompile Include="Histogram.cpp" />
     <ClCompile Include="Invert.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="Contrast.h" />
     <ClInclude Include="Filter.h" />
     <ClInclude Include="Gaten.h" />
+    <ClInclude Include="GatenMaarDanBeter.h" />
     <ClInclude Include="Histogram.h" />
     <ClInclude Include="Invert.h" />
     <ClInclude Include="Mier.h" />
