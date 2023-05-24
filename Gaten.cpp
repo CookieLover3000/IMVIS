@@ -9,41 +9,29 @@ Gaten::Gaten(Mat& src, Mat& dst) {
 
 void Gaten::process(void)
 {
-    int16_t h, w;
-    for (h = 0; h < HEIGHT; h++) 
+    int binnenTeller = 0;
+    int buitenTeller = 0;
+    int pixels[4] = { 0 };
+    for (int h = 1; h < HEIGHT - 1; h++)
     {
-        for (w = 0; w < WIDTH; w++) 
+        for (int w = 1; w < WIDTH - 1; w++)
         {
-            dst.at<uchar>(h, w) = 255;
-        }
-    }
-    label = 0;
-    for (h = 0; h < HEIGHT; h++)
-    {
-        for (w = 0; w < WIDTH; w++)
-        {
-            if ((labelPixel(h, w) != 0) && (label < 254))
-                label++;
-        }
-    }
-    cout << "Aantal Gaten: " << label << endl;
-}
-
-int Gaten::labelPixel(int h, int w)
-{
-    int16_t i, j;
-    if ((src.at<uchar>(h, w) == 255) && (dst.at<uchar>(h, w) == 255))
-    {
-        dst.at<uchar>(h, w) = label;
-        for (i = -1; i < 2; i++)
-        {
-            for (j = -1; j < 2; j++)
+            dst.at<uchar>(h, w) = 255 - src.at<uchar>(h, w);
+            int tempTeller = 0;
+            pixels[0] = src.at<uchar>(h, w);
+            pixels[1] = src.at<uchar>(h + 1, w);
+            pixels[2] = src.at<uchar>(h + 1, w + 1);
+            pixels[3] = src.at<uchar>(h, w + 1);
+            for (int i = 0; i < 4; i++)
             {
-                if (((i != 0) || (j != 0)) && (h + i >= 0) && (h + i < HEIGHT) && (w + j >= 0) && (w + j < WIDTH)) 
-                    labelPixel(h + i, w + j);
+                if (pixels[i] == 255)
+                    tempTeller++;
             }
+            if (tempTeller == 3)
+                binnenTeller++;
+            if (tempTeller == 1)
+                buitenTeller++;            
         }
-        return 255;
     }
-    return 0;
+    cout << (buitenTeller - binnenTeller) / 4 << endl;
 }

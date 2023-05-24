@@ -16,6 +16,5 @@ public:
 private:
 	Mat src, src2, dst;
 	int HEIGHT, WIDTH;
-	int labelPixel(int, int);
 };
 
